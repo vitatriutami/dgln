@@ -2,6 +2,7 @@ from email.mime import image
 import streamlit as st
 import pandas as pd
 import numpy as np
+from PIL import Image
 
 # Add a placeholder
 st.balloons()
@@ -37,9 +38,7 @@ def main_page():
     st.caption('Disusun oleh Kelompok Cosmos :hibiscus:')
 
     # Media Elements st.image
-    from PIL import Image
-    image = Image.open('C:\Streamlit\stenv\App\cybersecurity-for-airports.jpg')
-    st.image(image, caption='Credit to nelysis.com')
+    st.image("https://nelysis.com/wp-content/uploads/2019/06/cybersecurity-for-airports.jpg")
 
 
 
