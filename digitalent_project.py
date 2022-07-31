@@ -38,8 +38,8 @@ def main_page():
     st.caption('Disusun oleh Kelompok Cosmos :hibiscus:')
 
     # Media Elements st.image
-    st.image("https://nelysis.com/wp-content/uploads/2019/06/cybersecurity-for-airports.jpg")
-    st.caption("Credit to nelysis.com")
+    st.image("<p style='text-align: center;'>https://nelysis.com/wp-content/uploads/2019/06/cybersecurity-for-airports.jpg</p>")
+    st.caption("<p style='text-align: center;'>Credit to nelysis.com</p>")
 
 
 
