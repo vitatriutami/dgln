@@ -39,6 +39,7 @@ def main_page():
 
     # Media Elements st.image
     st.image("https://nelysis.com/wp-content/uploads/2019/06/cybersecurity-for-airports.jpg")
+    st.caption("Credit to nelysis.com")
 
 
 
@@ -58,7 +59,7 @@ def page2():
 def page3():
     st.markdown("# Halaman Ketiga :smile:")
     st.sidebar.markdown("<h1 style='text-align: center; color: yellow;'>Keamanan Siber Bandara Indonesia</h1>", unsafe_allow_html=True)
-    st.sidebar.markdown(":small_airplane: :flag-id:")
+    st.sidebar.markdown(":tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip: :tulip:")
     st.write("Haloo ini halaman ke-3")
     st.write("seru")
     
