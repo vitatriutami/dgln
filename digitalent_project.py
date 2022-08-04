@@ -2,16 +2,18 @@ from email.mime import image
 from tokenize import Name
 from unicodedata import name
 from urllib import request
-import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
 import time
+import json
 import requests
+import streamlit as st
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 
 
-# Add a placeholder
-st.balloons()
+
 
 # HALAMAN PERTAMA
 def main_page():
@@ -33,10 +35,24 @@ def main_page():
 
     st.text_input("Nama kamu:", key = "name")
     st.write(":sunglasses: :sunglasses: Halo,", st.session_state.name)
-    
+    st.title('\n')
+    st.title('\n')
 
     if st.button ("Mulai"):
         st.text("Hai! Selamat datang di Web App!")
+        st.balloons()
+    
+    st.title('\n')
+    
+    def load_lottieurl(url:str):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+    
+    lottie_url_hello = "https://assets5.lottiefiles.com/packages/lf20_V9t630.json"
+    
+    st_lottie(lottie_hello, key="hello")
     
     # 1 SET TITLE
     st.header('Bandara :airplane: :dash:')
