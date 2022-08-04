@@ -6,13 +6,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-import matplotlib.pyplot as plt
 import time
 import requests
-import json
-from streamlit_lottie import st_lottie
-from streamlit_lottie import st_lottie_spinner
-
 
 
 # Add a placeholder
@@ -39,14 +34,7 @@ def main_page():
     st.text_input("Nama kamu:", key = "name")
     st.write(":sunglasses: :sunglasses: Halo,", st.session_state.name)
     
-    def load_lottieurl(url: str):
-        r = requests.get(url)
-        if r.status_code != 200:
-            return None
-        return r.json()
-    
-    lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_calza6zj.json")
-    
+
     if st.button ("Mulai"):
         st.text("Hai! Selamat datang di Web App!")
     
