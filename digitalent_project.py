@@ -1,25 +1,26 @@
 from email.mime import image
+from tokenize import Name
+from unicodedata import name
+from urllib import request
 import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
+import json
+from streamlit_lottie import st_lottie
+
+
 
 # Add a placeholder
 st.balloons()
 
+# HALAMAN PERTAMA
 def main_page():
-    st.markdown("# KEAMANAN SIBER DI BANDARA :airplane: :dash:")
+    st.markdown("# KEAMANAN SIBER BANDARA :airplane: :dash:")
     st.sidebar.markdown("<h1 style='text-align: center; color: yellow;'>Definisi</h1>", unsafe_allow_html=True)
     st.sidebar.markdown(":rose: :rose: :rose: :rose: :rose: :rose: :rose: :rose: :rose: :rose: :rose: :rose:")
-    st.sidebar.markdown("<h2 style='text-align: center; color: black;'>Informasi Tambahan</h2>", unsafe_allow_html=True)
-    st.sidebar.markdown("""
-                        <p style='color: black;'>Contributor Kelompok Cosmos:</p>
-                        <ol style='color:black;'>
-                            <li>Ira Naintin Sepnanda</li>
-                            <li>Putri Meliana Sari</li>
-                            <li>Vita Tri Utami</li>
-                        </ol>
-                        """, unsafe_allow_html=True)
+    st.sidebar.markdown("<h2 style='text-align: center; color: black;'>Contributor: Kelompok Cosmos</h2>", unsafe_allow_html=True)
     st.sidebar.markdown("")
     st.sidebar.markdown("<h3 style='text-align: center; color: black;'>Powered by:</h3>", unsafe_allow_html=True)
     st.sidebar.markdown("""
@@ -32,7 +33,20 @@ def main_page():
     st.sidebar.markdown("<h4 style='text-align: center; color: black;'>Copyright &copy; 2022</h4>", unsafe_allow_html=True)
                         
 
-
+    st.text_input("Nama kamu:", key = "name")
+    st.write(":sunglasses: :sunglasses: Halo,", st.session_state.name)
+    
+    def load_lottieurl(url: str):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+    
+    lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_calza6zj.json")
+    
+    if st.button ("Mulai"):
+        st.text("Hai! Selamat datang di Web App!")
+    
     # 1 SET TITLE
     st.header('Bandara :airplane: :dash:')
     st.caption('Disusun oleh Kelompok Cosmos :hibiscus:')
@@ -46,6 +60,8 @@ def main_page():
     st.title('\n')
     st.title('\n')
 
+
+# HALAMAN KEDUA
 def page2():
     st.markdown("# Halaman Kedua :smile:")
     st.sidebar.markdown("<h1 style='text-align: center; color: yellow;'>Keamanan Siber Bandara Dunia</h1>", unsafe_allow_html=True)
@@ -55,7 +71,9 @@ def page2():
     
     from PIL import Image
     
-    
+
+
+# HALAMAN KETIGA    
 def page3():
     st.markdown("# Halaman Ketiga :smile:")
     st.sidebar.markdown("<h1 style='text-align: center; color: yellow;'>Keamanan Siber Bandara Indonesia</h1>", unsafe_allow_html=True)
@@ -65,13 +83,14 @@ def page3():
     
     from PIL import Image
     
-    
+# PENAMAAN HALAMAN    
 page_names_to_func = {
     "Halaman Utama": main_page,
     "Halaman Kedua": page2,
     "Halaman Ketiga": page3,
 }
 
-st.sidebar.header("Keamanan Siber Bandara")
+# KETERANGAN SIDEBAR
+st.sidebar.header("Streamlit Project")
 selected_page = st.sidebar.selectbox ("Pilih Halaman", page_names_to_func.keys())
 page_names_to_func[selected_page]()
