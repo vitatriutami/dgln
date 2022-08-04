@@ -6,9 +6,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-
+import matplotlib.pyplot as plt
+import time
+import requests
 import json
 from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 
 
 
