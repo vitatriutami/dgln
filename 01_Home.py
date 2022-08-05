@@ -12,7 +12,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
 import matplotlib.pyplot as plt
-from streamlit_option_menu import option_menu
+
 
 
 
@@ -20,24 +20,7 @@ from streamlit_option_menu import option_menu
 # HOMPEPAGE
 st.markdown("# Welcome to Our Web App :wave:")
 
-# sidebar menu
-with st.sidebar:
-    selected = option_menu(
-        menu_title=None,
-        options=["Home", "Projects", "Contacts"],
-        menu_icon="cast",
-        default_index=0,
-        oriental="horizontal",
-    ) 
-    
-    if selected == "Home":
-        st.title(f"You have selected {selected}")
-    if selected == "Projects":
-        st.title(f"you have selected {selected}")
-    if selected == "Contacts":
-        st.title(f"you have selected {selected}")
-    
-    
+# SIDEBAR    
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>Homepage</h1>", unsafe_allow_html=True)
 st.sidebar.markdown("")
 st.sidebar.markdown("")
