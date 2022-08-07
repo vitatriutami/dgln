@@ -9,6 +9,8 @@ import time
 import json
 import requests
 import streamlit as st
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
@@ -18,7 +20,14 @@ import plotly.express as px
 import io
 
 
-choose = option_menu(None, ["Home", "Project", "Planning", "About Us", "Contact"],
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+local_css("./style/style.css")
+
+# ---- NAVBAR MENU -----
+choose = option_menu(None, ["Home", "Project", "Data", "About Us", "Contact"],
                      icons=['house', 'camera fill', 'kanban', 'book','person lines fill'],
                      menu_icon="app-indicator", default_index=0, orientation="horizontal",
                      styles={
@@ -29,124 +38,143 @@ choose = option_menu(None, ["Home", "Project", "Planning", "About Us", "Contact"
 )
 
 
+    
 
 # ---- HOME PAGE ----
-logo = Image.open(r'C:\Streamlit\stenv\img\jae.jpg')
-profile = Image.open(r'C:\Streamlit\stenv\img\jae.jpg')
+
+    # CODE LOTTIE
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# LOAD ASSETS
+lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+logo = Image.open(r'C:\Streamlit\stenv\img\logo1.png')
+
 if choose == "Home":
     col1, col2 = st.columns( [0.8, 0.2])
     with col1:               # To display the header text using css style
         st.markdown(""" <style> .font {
         font-size:35px ; font-family: 'Cooper Black'; color: #66FCF1;} 
         </style> """, unsafe_allow_html=True)
-        st.markdown('<p class="font">Hi! Welcome to Our Project!</p>', unsafe_allow_html=True)    
+        st.markdown('<p class="font">Welcome to Our Project!</p>', unsafe_allow_html=True)    
     with col2:               # To display brand log
         st.image(logo, width=130 )
     
-    st.write("Jaemin.....\n\nTo read jaemin  posts, please visit her Medium blog at:")    
-    st.image(profile, width=700 )
+    
+    st.write("Ini adalah hackathon project kami dalam mengikuti pelatihan Women in Tech: Cybersecurity and Python dari Program Digital Talent Scholarship yang diselenggarakan oleh Kementerian Komunikasi dan Informatika (Kominfo) Republik Indonesia, yang bermitra dengan Cisco Networking. \n\n")
+    st.write("[Read More about the academy>](https://digitalent.kominfo.go.id/detail/pelatihan/3161?akademiId=146)")    
+    st_lottie(lottie_coding, height=300, key="coding")
+
+    
+    # ----- CODE LOTTIE ----
+    def load_lottieurl(url):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
+
+    # ---- LOAD ASSETS ----
+
+    # ---- HEADER SECTION ----
+    with st.container():
+        st.write("---")
+        st.subheader("Instructor at Class S :school:")
+        st.write("- Dr. Sitti Yani, M.Si.")
+        st.write("- I Made Adhi Wiryawan, S.T.")
+
     
     
 # ---- PROJECT ----
 elif choose == "Project":
-    col1, col2 = st.columns( [0.8, 0.2])
-    with col1:               # To display the header text using css style
-        st.markdown(""" <style> .font {
-        font-size:35px ; font-family: 'Cooper Black'; color: #66FCF1;} 
-        </style> """, unsafe_allow_html=True)
-        st.markdown('<p class="font">Upload your photo here...</p>', unsafe_allow_html=True)
-        
-    with col2:               # To display brand logo
-        st.image(logo,  width=150)
-    #Add file uploader to allow users to upload photos
-    uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
-    if uploaded_file is not None:
-        image = Image.open(uploaded_file)
-        
-        col1, col2 = st.columns( [0.5, 0.5])
-        with col1:
-            st.markdown('<p style="text-align: center;">Before</p>',unsafe_allow_html=True)
-            st.image(image,width=300)  
+    # ----- CODE LOTTIE ----
+    def load_lottieurl(url):
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        return r.json()
 
-        with col2:
-            st.markdown('<p style="text-align: center;">After</p>',unsafe_allow_html=True)
+    # ---- LOAD ASSETS ----
+    lottie_biru = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_cbvtefpb.json")
+    lottie_apjalan = load_lottieurl("https://assets4.lottiefiles.com/private_files/lf30_45kfqk4d.json")
+    lottie_sc = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_2w2xmpvk.json")
+    
+    
+    st.markdown(""" <style> .font {
+    font-size:35px ; font-family: 'Cooper Black'; text-align: center; color: #66FCF1;} 
+    </style> """, unsafe_allow_html=True)
+    st.markdown('<p class="font">Cybersecurity in Aviation Industry</p>', unsafe_allow_html=True)  
+    st_lottie(lottie_biru, height=300, key="airplane")
+    
+    
+    with st.container():
+        st.write("---")
+        left_column, right_column = st.columns(2)
+        with left_column:
+            st.header("Fungsi")
+            st.write("##")
+        with right_column:
+            st_lottie(lottie_apjalan, height=300, key="code")
+    with st.container():
+        st.write("---")
+        st.markdown("<h2 style='text-align: center; color: white;'>Smaller headline in black </h2>", unsafe_allow_html=True)
+        st.header("Solusi")
+        st.write("iya tuh")
 
-            converted_img = np.array(image.convert('RGB')) 
-            gray_scale = cv2.cvtColor(converted_img, cv2.COLOR_RGB2GRAY)
-            inv_gray = 255 - gray_scale
-            blur_image = cv2.GaussianBlur(inv_gray, (125,125), 0, 0)
-            sketch = cv2.divide(gray_scale, 255 - blur_image, scale=256)
-            st.image(sketch, width=300)
+
+    # ---- PENJELASAN -----
+    with st.container():
+        st.write("---")
+        left_column, right_column = st.columns(2)
+        with right_column:
+            st.header("Fungsi")
+            st.write("##")
+            st.write(
+                """
+                Kami membuat streamlit 
+                """ 
+            )
+            st.write("[Youtube Channel >](https://youtube.com/)")
+        with left_column:
+            st_lottie(lottie_sc, height=300, key="sc")
 
 
 
-# ---- PLANNING PAGE ----            
-elif choose == "Planning":
-#Add a file uploader to allow users to upload their project plan file
+# ---- DATA PAGE ----            
+elif choose == "Data":
     st.markdown(""" <style> .font {
     font-size:35px ; font-family: 'Cooper Black'; color: #66FCF1;} 
     </style> """, unsafe_allow_html=True)
     st.markdown('<p class="font">Upload your project plan</p>', unsafe_allow_html=True)
-
-    uploaded_file = st.file_uploader("Fill out the project plan template and upload your file here. After you upload the file, you can edit your project plan within the app.", type=['csv'], key="2")
-    if uploaded_file is not None:
-        Tasks=pd.read_csv(uploaded_file)
-        Tasks['Start'] = Tasks['Start'].astype('datetime64')
-        Tasks['Finish'] = Tasks['Finish'].astype('datetime64')
-        
-        grid_response = AgGrid(
-            Tasks,
-            editable=True, 
-            height=300, 
-            width='100%',
-            )
-
-        updated = grid_response['data']
-        df = pd.DataFrame(updated) 
-        
-        if st.button('Generate Gantt Chart'): 
-            fig = px.timeline(
-                            df, 
-                            x_start="Start", 
-                            x_end="Finish", 
-                            y="Task",
-                            color='Completion Pct',
-                            hover_name="Task Description"
-                            )
-
-            fig.update_yaxes(autorange="reversed")          #if not specified as 'reversed', the tasks will be listed from bottom up       
-            
-            fig.update_layout(
-                            title='Project Plan Gantt Chart',
-                            hoverlabel_bgcolor='#DAEEED',   #Change the hover tooltip background color to a universal light blue color. If not specified, the background color will vary by team or completion pct, depending on what view the user chooses
-                            bargap=0.2,
-                            height=600,              
-                            xaxis_title="", 
-                            yaxis_title="",                   
-                            title_x=0.5,                    #Make title centered                     
-                            xaxis=dict(
-                                    tickfont_size=15,
-                                    tickangle = 0,
-                                    rangeslider_visible=True,
-                                    side ="top",            #Place the tick labels on the top of the chart
-                                    showgrid = True,
-                                    zeroline = True,
-                                    showline = True,
-                                    showticklabels = True,
-                                    tickformat="%x\n",      #Display the tick labels in certain format. To learn more about different formats, visit: https://github.com/d3/d3-format/blob/main/README.md#locale_format
-                                    )
-                        )
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            st.write('---') 
-            
+    st.write('---')
+    st.header('Data Kasus 2003-2021')
+    st.subheader('Data kasus dan keterangan')
+    
+    # LOAD DATAFRAME
+    excel_file = 'data1.xlsx'
+    sheet_name = 'DATA'
+    
+    df = pd.read_excel(excel_file,
+                       sheet_name=sheet_name,
+                       usecols='A:D',
+                       header=4)
+    
+    # STREAMLIT SELECTION
+    negara = df['Lokasi'].unique().tolist()
+     
+    st.dataframe(df)
+    
+    
+    
 
 # ---- ABOUT US ----
 elif choose == "About Us":
     st.markdown(""" <style> .font {
     font-size:35px ; font-family: 'Cooper Black'; color: #66FCF1; text-align: center;} 
     </style> """, unsafe_allow_html=True)
-    st.markdown('<p class="font">Lebih lanjut mengenai kami:</p>', unsafe_allow_html=True)
+    st.markdown('<p class="font">Get to know more about us</p>', unsafe_allow_html=True)
 
     with st.container():
         col1, col2, col3 = st.columns(3)
@@ -156,7 +184,7 @@ elif choose == "About Us":
             st.write("<h4 style='text-align: center; color: white;'>Ira Naintin Sepnanda</h4>", unsafe_allow_html=True)
             st.write("Seorang wanita")
             st.caption("Instagram: [@irasepnanda](https://instagram.com/irasepnanda/)")
-            st.caption("LinkedIn: [linkedin.com/in/ira-naintin-sepnanda-17951718b](linkedin.com/in/ira-naintin-sepnanda-17951718b/)")
+            st.caption("LinkedIn: [linkedin.com/in/ira-naintin-sepnanda-17951718b](https://www.linkedin.com/in/ira-naintin-sepnanda-17951718b/)")
             
 
         with col2:
@@ -164,7 +192,7 @@ elif choose == "About Us":
             st.write("<h4 style='text-align: center; color: white;'>Vita Tri Utami</h4>", unsafe_allow_html=True)
             st.write("Seorang wanita")
             st.caption("Instagram: [@heyvita__tr](https://instagram.com/heyvita__tr/)")
-            st.caption("LinkedIn: [linkedin.com/in/ira-naintin-sepnanda-17951718b](linkedin.com/in/ira-naintin-sepnanda-17951718b/)")
+            st.caption("LinkedIn: [linkedin.com/in/vita-tri-utami-792a16139](https://www.linkedin.com/in/vita-tri-utami-792a16139//)")
             
 
         with col3:
