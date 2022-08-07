@@ -217,9 +217,9 @@ elif choose == "Data":
     st.markdown('<p class="font">Data Cases</p>', unsafe_allow_html=True)
     st.write('---')
     
-    tab1, tab2 = st.tabs(["🪤Kasus", "🔓Risiko"])
+    tab1, tab2 = st.tabs(["🪤Insiden", "🔓Risiko"])
     with tab1:
-        st.subheader('Kasus Ancaman Keamanan dalam *Aviation Cyber Security* Tahun 2003-2021')
+        st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Insiden Ancaman Keamanan Siber dalam Aviation Cyber Security Tahun 2003-2021</h3>", unsafe_allow_html=True)
         st.write('Berikut merupakan kasus ancaman keamanan (*cyber attack*) yang pernah terjadi di dunia penerbangan internasional.')
     
         # LOAD DATAFRAME
@@ -236,10 +236,10 @@ elif choose == "Data":
         AgGrid(df)
         st.write("Credit to: [Jurnal MDPI](https://www.researchgate.net/publication/359155431_Cyber-Security_Challenges_in_Aviation_Industry_A_Review_of_Current_and_Future_Trends)")
     with tab2:    
-        st.markdown("<h3 style='text-align: center; color: #77BFC7;'>Risiko Manajemen Industri Penerbangan dalam Aviation Cyber Security</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Risiko Manajemen Industri Penerbangan dalam Aviation Cyber Security</h3>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Laporan World Economic Forum menjelaskan bahwa risiko sistemik secara inheren berbeda dengan risiko non-sistemik karena konsekuensinya lebih luas. Risiko sistemik adalah risiko kerusakan di seluruh sistem, dibandingkan dengan kerusakan di bagian-bagian individu dan komponen. Risiko ini lebih kompleks karena banyak variabel, koneksi, ketergantungan, dan saling ketergantungan menghasilkan konsekuensi yang berjenjang, seringkali tidak terduga. Industri penerbangan menghadapi tantangan yang terkait dengan risiko sistemik akibatnya juga semakin saling terkait, meluas, dan kompleks. Dengan begitu, manajemen risiko dalam industri penerbangan menjadi lebih matang menghadapi tantangan ancaman siber (cyberthreat), lebih memahami risiko dan mitigasi, dan membangun industri penerbangan yang lebih tangguh.</h6>", unsafe_allow_html=True)
         image4 = Image.open("./img/risk.jpg")
-        st.image(image4)
+        st.image(image4, caption="Credit to: [World Economic Forum](https://www.weforum.org/)")
     
     
 # ---- ABOUT US ----
