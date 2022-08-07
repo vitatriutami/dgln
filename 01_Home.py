@@ -1,4 +1,5 @@
 from email.mime import image
+from lib2to3.pgen2.pgen import DFAState
 from tokenize import Name
 from unicodedata import name
 from urllib import request
@@ -16,8 +17,10 @@ from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
 from st_aggrid import AgGrid
 import cv2
+import plotly as plt
 import plotly.express as px
 import io
+from openpyxl import Workbook
 
 
 # Use local CSS
@@ -153,20 +156,16 @@ elif choose == "Data":
     st.subheader('Data kasus dan keterangan')
     
     # LOAD DATAFRAME
-    excel_file = 'data1.xlsx'
-    sheet_name = 'DATA'
+    df = pd.read_excel(
+        io = './Data_Kasus.xlsx',
+        engine = 'openpyxl',
+        sheet_name = 'Sheet1',
+        skiprows = 0,
+        usecols = 'A:D',
+        nrows = 27,        
+    )
     
-    df = pd.read_excel(excel_file,
-                       sheet_name=sheet_name,
-                       usecols='A:D',
-                       header=4)
-    
-    # STREAMLIT SELECTION
-    negara = df['Lokasi'].unique().tolist()
-     
-    st.dataframe(df)
-    
-    
+    print(df)
     
 
 # ---- ABOUT US ----
