@@ -10,7 +10,7 @@ import time
 import json
 import requests
 import streamlit as st
-from streamlit_lottie import st_lottie_spinner
+
 from streamlit_lottie import st_lottie
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
