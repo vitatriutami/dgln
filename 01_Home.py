@@ -1,3 +1,4 @@
+from argparse import Action
 from email.mime import image
 from lib2to3.pgen2.pgen import DFAState
 from tokenize import Name
@@ -203,11 +204,40 @@ elif choose == "Project":
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Cyber Resilience: Principles and Tools for Boards</h2>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>World Economic Forum dalam rangka membangun ketahanan siber (*cyber resilience*) dalam industri penerbangan, pada pertengahan September 2020 hingga pertengahan Januari 2021 melakukan pelatihan terhadap perwakilan berbagai industri penerbangan benua dan menghasilkan prinsip-prinsip penerbangan berikut untuk mendukung cyber resilience.</h6>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>World Economic Forum dalam rangka membangun ketahanan siber (cyber resilience) dalam industri penerbangan, pada pertengahan September 2020 hingga pertengahan Januari 2021 melakukan pelatihan terhadap perwakilan berbagai industri penerbangan benua dan menghasilkan prinsip-prinsip penerbangan berikut untuk mendukung cyber resilience.</h6>", unsafe_allow_html=True)
         image2 = Image.open("./img/res1.jpg")
         st.image(image2)
         image3 = Image.open("./img/res2.jpg")
         st.image(image3, caption="Credit to: World Economic Forum (https://www.weforum.org/)")
+        
+    # SUBPAGE 8 - MITIGASI MENGHINDARI
+    with st.container():
+        st.write("---")
+        st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Bagaimana Bandara Dapat Menghindari Serangan?</h2>", unsafe_allow_html=True)
+        
+        # ----- CODE LOTTIE ----
+        def load_lottieurl(url):
+            r = requests.get(url)
+            if r.status_code != 200:
+                return None
+            return r.json()
+        
+        # LOAD ASSETS
+        lottie_navy = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_eyway5ts.json")
+        
+        # 2 COLUMNS - 1 TITLE
+        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Langkah-langkah  perlindungan sistem dapat dilakukan dengan cara perlindungan administratif, pengendalian sistem sofware, dan pengendalian  fisik.</h6>", unsafe_allow_html=True)
+        left_column, right_column = st.columns(2)
+        with left_column:
+            st.markdown("<h6 style='text-align: left; font-weight: bold; color: #008B8B;'>Administratif</h6>", unsafe_allow_html=True)
+            st. write("Dengan membuat desain dan  prosedur keamanan sistem, seleksi dan background check karyawan yang menangani system, pelatihan cyber security awareness, risk assessment terhadap sistem, pengawasan (quality control) terhadap  implementasi system.")
+            st.markdown("<h6 style='text-align: left; font-weight: bold; color: #008B8B;'>Perlindungan sistem software</h6>", unsafe_allow_html=True)
+            st.write("Dilakukan dengan pengamanan jaringan internal-eksternal (nextgen firewall, control akses network, backup, dan yang lainnya), network intusion detection systems, penerapan anti-virus, anti bootnet dan anti malware di dalam perangkat TIK, review dan pembaharuan terhadap software/sistem TIK, menguji efektifitas TIK melalui simulasi serangan siber, pengamanan terhadap penggunaan akun privilege TIK serta pencegahan dan implementasi strategi potensi kebocoran data.")
+        with right_column:
+            st_lottie(lottie_navy, height=179, key="navy")
+            st.markdown("<h6 style='text-align: left; font-weight: bold; color: #008B8B;'>Perlindungan fisik</h6>", unsafe_allow_html=True)
+            st.write("Perlindungan fasilitas hardware dan server, sistem kewenangan pada akses masuk (biometric, finger  print ), membatasi jumlah orang yang diberi izin masuk, mempersyaratkan penerbitan izin masuk disetujui oleh lebih dari 1 orang, sistem pengawasan terus menerus dengan CCTV, memiliki sistim dan back up system, membuat buku catatan kegiatan  (logbook) serta membuat sistem peringatan (alert  system).")                
+        
         
 # ---- DATA PAGE ----            
 elif choose == "Data":
@@ -239,7 +269,7 @@ elif choose == "Data":
         st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Risiko Manajemen Industri Penerbangan dalam Aviation Cyber Security</h3>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Laporan World Economic Forum menjelaskan bahwa risiko sistemik secara inheren berbeda dengan risiko non-sistemik karena konsekuensinya lebih luas. Risiko sistemik adalah risiko kerusakan di seluruh sistem, dibandingkan dengan kerusakan di bagian-bagian individu dan komponen. Risiko ini lebih kompleks karena banyak variabel, koneksi, ketergantungan, dan saling ketergantungan menghasilkan konsekuensi yang berjenjang, seringkali tidak terduga. Industri penerbangan menghadapi tantangan yang terkait dengan risiko sistemik akibatnya juga semakin saling terkait, meluas, dan kompleks. Dengan begitu, manajemen risiko dalam industri penerbangan menjadi lebih matang menghadapi tantangan ancaman siber (cyberthreat), lebih memahami risiko dan mitigasi, dan membangun industri penerbangan yang lebih tangguh.</h6>", unsafe_allow_html=True)
         image4 = Image.open("./img/risk.jpg")
-        st.image(image4, caption="Credit to: [World Economic Forum](https://www.weforum.org/)")
+        st.image(image4, caption="Credit to: [World Economic Forum](https://www.weforum.org/)", use_column_width=True)
     
     
 # ---- ABOUT US ----
@@ -284,7 +314,8 @@ elif choose == "Contact":
     font-size:35px ; font-family: 'Cooper Black'; color: #66FCF1;} 
     </style> """, unsafe_allow_html=True)
     st.markdown('<p class="font">Contact Form</p>', unsafe_allow_html=True)
-    with st.form(key='columns_in_form2',clear_on_submit=True): #set clear_on_submit=True so that the form will be reset/cleared once it's submitted
+    st.write(":mailbox: Get in Touch with Us!")
+    with st.form(key='columns_in_form2', clear_on_submit=True): #set clear_on_submit=True so that the form will be reset/cleared once it's submitted
         #st.write('Please help us improve!')
         Name=st.text_input(label='Please Enter Your Name', placeholder='Your name') #Collect user feedback
         Email=st.text_input(label='Please Enter Email',  placeholder='Your email') #Collect user feedback
