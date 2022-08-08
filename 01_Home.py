@@ -1,6 +1,7 @@
 from argparse import Action
 from email.mime import image
 from lib2to3.pgen2.pgen import DFAState
+from telnetlib import SEND_URL
 from tokenize import Name
 from unicodedata import name
 from urllib import request
@@ -114,7 +115,7 @@ elif choose == "Project":
     st.markdown('<p class="font">Cyber Security in Aviation Industry</p>', unsafe_allow_html=True)  
     st_lottie(lottie_biru, height=300, key="airplane")
     
-    # SUBPAGE 1 
+    # SUBPAGE 1 - DEFINISI CYBER SECURITY
     with st.container():
         st.write("---")
         left_column, right_column = st.columns(2)
@@ -124,7 +125,7 @@ elif choose == "Project":
         with right_column:
             st_lottie(lottie_sc, height=300, key="code")
     
-    # SUBPAGE 2
+    # SUBPAGE 2 - KONSEP CYBER SECURITY
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Konsep dalam Cyber Security</h2>", unsafe_allow_html=True)
@@ -138,7 +139,7 @@ elif choose == "Project":
             st.write("  Pengertian *availability* adalah memastikan ketersediaan data. Dimana pengguna bisa mengakses data yang ingin dicari dengan lancar, mudah dan tanpa halangan.")
 
 
-    # SUBPAGE 3
+    # SUBPAGE 3 - DEFINISI AVIATION CYBER SECURITY
     with st.container():
         st.write("---")
         left_column, right_column = st.columns(2)
@@ -148,7 +149,7 @@ elif choose == "Project":
         with left_column:
             st_lottie(lottie_hp, height=300, key="sc")
     
-    # SUBPAGE 4
+    # SUBPAGE 4 - BIDANG APA SAJA DALAM AVIATION CYBER SECURITY
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Pentingnya Aviation Cyber Security</h2>", unsafe_allow_html=True)
@@ -164,7 +165,7 @@ elif choose == "Project":
         image1 = Image.open("./img/bandara.jpg")
         st.image(image1, caption="Credit to: [World Economic Forum](https://www.weforum.org/)")
 
-    # SUBPAGE 5 - TANTANGAN ANCAMAN SIBER
+    # SUBPAGE 5 - JENIS ANCAMAN SIBER PALING UMUM
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Jenis Ancaman Siber (Cyberthreat) dalam Dunia Penerbangan</h2>", unsafe_allow_html=True)
@@ -185,7 +186,7 @@ elif choose == "Project":
             if st.button ("Attacks on Payment System"):
                 st.write("Peretas mencuri detail kartu pembayaran dan informasi pribadi lainnya dari setengah juta pelanggan British Airways. Kebocoran tersebut dapat mengakibatkan kerusakan reputasi, dan potensi kehilangan pelanggan. Untuk insiden di atas, British Airways membayar denda GDPR sebesar £183 juta untuk keamanan data yang lemah.")
 
-    # SUBPAGE 6 - STRATEGI
+    # SUBPAGE 6 - STRATEGI AVIATION CYBER SECURITY
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Aviation Cyber Security Strategy</h2>", unsafe_allow_html=True)
@@ -200,7 +201,7 @@ elif choose == "Project":
         st.write("##")
         st.write("Untuk lebih lengkapnya, silakan klik [disini](https://www.icao.int/cybersecurity/Pages/Cybersecurity-Strategy.aspx) dan [disini](https://www.icao.int/cybersecurity/Documents/AVIATION%20CYBERSECURITY%20STRATEGY.EN.pdf)")
     
-    # SUBPAGE 7 - SOLUSI
+    # SUBPAGE 7 - MEMBANGUN CYBER RESILIENCE
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Cyber Resilience: Principles and Tools for Boards</h2>", unsafe_allow_html=True)
@@ -267,7 +268,7 @@ elif choose == "Data":
         st.write("Credit to: [Jurnal MDPI](https://www.researchgate.net/publication/359155431_Cyber-Security_Challenges_in_Aviation_Industry_A_Review_of_Current_and_Future_Trends)")
     with tab2:    
         st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Risiko Manajemen Industri Penerbangan dalam Aviation Cyber Security</h3>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Laporan World Economic Forum menjelaskan bahwa risiko sistemik secara inheren berbeda dengan risiko non-sistemik karena konsekuensinya lebih luas. Risiko sistemik adalah risiko kerusakan di seluruh sistem, dibandingkan dengan kerusakan di bagian-bagian individu dan komponen. Risiko ini lebih kompleks karena banyak variabel, koneksi, ketergantungan, dan saling ketergantungan menghasilkan konsekuensi yang berjenjang, seringkali tidak terduga. Industri penerbangan menghadapi tantangan yang terkait dengan risiko sistemik akibatnya juga semakin saling terkait, meluas, dan kompleks. Dengan begitu, manajemen risiko dalam industri penerbangan menjadi lebih matang menghadapi tantangan ancaman siber (cyberthreat), lebih memahami risiko dan mitigasi, dan membangun industri penerbangan yang lebih tangguh.</h6>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Laporan World Economic Forum menjelaskan bahwa setelah terjadi cyber attack pada industri penerbangan dapat menibulkan risiko sistemik dan risiko non-sistemik. Risikko sistemik lebih besar dampaknya karena konsekuensinya lebih luas. Risiko dapat terjadi pada seluruh sistem, tidak hanya pada bagian-bagian tertentu saja. Risiko ini lebih kompleks karena banyak variabel, koneksi, ketergantungan, dan saling ketergantungan menghasilkan konsekuensi yang berjenjang, seringkali tidak terduga. Risiko sistemik terjadi saling berkaitan antara satu sistem dan sistem lainnya, meluas, dan kompleks. Namun dengan begitu, manajemen risiko dalam industri penerbangan menjadi lebih matang menghadapi tantangan ancaman siber (cyberthreat), dapat lebih memahami risiko dan mitigasi, dan membangun industri penerbangan yang lebih tangguh.</h6>", unsafe_allow_html=True)
         image4 = Image.open("./img/risk.jpg")
         st.image(image4, caption="Credit to: [World Economic Forum](https://www.weforum.org/)", use_column_width=True)
     
@@ -297,7 +298,7 @@ elif choose == "About Us":
             st.write("I'm a freshgraduate majoring in Regional Development. I'm a fast-learner and ambitious. Currently, I'm seeking opportunities that will allow me to improve knowledge in this revolution industry era.")
             st.write("Motto: *Think outside the box. Better yet, burn the box and dance on the ashes*")
             st.caption("Instagram: [@heyvita__tr](https://instagram.com/heyvita__tr/)")
-            st.caption("LinkedIn: [linkedin.com/in/vita-tri-utami-792a16139](https://www.linkedin.com/in/vita-tri-utami-792a16139//)")
+            st.caption("LinkedIn: [linkedin.com/in/vita-tri-utami](https://www.linkedin.com/in/vita-tri-utami/)")
             
 
         with col3:
@@ -315,6 +316,8 @@ elif choose == "Contact":
     </style> """, unsafe_allow_html=True)
     st.markdown('<p class="font">Contact Form</p>', unsafe_allow_html=True)
     st.write(":mailbox: Get in Touch with Us!")
+    
+    # CONTACT FORM
     with st.form(key='columns_in_form2', clear_on_submit=True): #set clear_on_submit=True so that the form will be reset/cleared once it's submitted
         #st.write('Please help us improve!')
         Name=st.text_input(label='Please Enter Your Name', placeholder='Your name') #Collect user feedback
@@ -323,3 +326,4 @@ elif choose == "Contact":
         submitted = st.form_submit_button('Submit')
         if submitted:
             st.write('Thanks for your contacting us. We will respond to your questions or inquiries as soon as possible!')
+            
