@@ -72,7 +72,7 @@ if choose == "Home":
     
     
     st.write("Ini adalah hackathon project kami dalam mengikuti pelatihan *Women in Tech: Cybersecurity and Python* dari Program Digital Talent Scholarship yang diselenggarakan oleh Kementerian Komunikasi dan Informatika (Kominfo) Republik Indonesia, yang bermitra dengan Cisco Networking. \n\n")
-    st.write("[Read More about the academy>](https://digitalent.kominfo.go.id/detail/pelatihan/3161?akademiId=146)")    
+    st.write("[Read more about this academy>](https://digitalent.kominfo.go.id/detail/pelatihan/3161?akademiId=146)")    
     st_lottie(lottie_coding, height=300, key="coding")
 
     
@@ -149,15 +149,19 @@ elif choose == "Project":
         with left_column:
             st_lottie(lottie_hp, height=300, key="sc")
     
-    # SUBPAGE 4 - BIDANG APA SAJA DALAM AVIATION CYBER SECURITY
+    # SUBPAGE 4 - BIDANG APA SAJA YANG TERKAIT DALAM AVIATION CYBER SECURITY
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Pentingnya Aviation Cyber Security</h2>", unsafe_allow_html=True)
         st.markdown("<h4 style='text-align: center; color: #008B8B;'>Bidang Apa Saja yang Perlu Dilindungi?</h4>", unsafe_allow_html=True)
         st.write("*Aviation cyber security* mencakup banyak hal yang dilindungi demi terjalinnya keamanan penerbangan, baik keamanan penerbangan sebelum penerbangan hingga berakhirnya proses penerbangan.")
         st.write("Berikut merupakan penjelasan singkat mengenai apa saja yang terkait dalam *aviation cyber security*")
+        
+        # LOAD VIDEO
         video1 = open("./img/aviation.mp4", "rb")
         st.video(video1)
+        
+        
         st.write("Credit to: https://www.youtube.com/watch?v=VXp9zaf6CT8")
         st.write("##")
         st.markdown("<h4 style='text-align: center; color: #77BFC7;'>Kompleksitas Ekosistem Penerbangan</h4>", unsafe_allow_html=True)
@@ -199,13 +203,13 @@ elif choose == "Project":
         st.write("6. Manajemen dan perencanaan insiden darurat *cyber security*")
         st.write("7. Peningkatan kapasitas dan pelatihan tentang *cyber security*")
         st.write("##")
-        st.write("Untuk lebih lengkapnya, silakan klik [disini](https://www.icao.int/cybersecurity/Pages/Cybersecurity-Strategy.aspx) dan [disini](https://www.icao.int/cybersecurity/Documents/AVIATION%20CYBERSECURITY%20STRATEGY.EN.pdf)")
+        st.write("Untuk lebih lengkapnya, silakan klik [disini](https://www.icao.int/cybersecurity/Documents/AVIATION%20CYBERSECURITY%20STRATEGY.EN.pdf)")
     
     # SUBPAGE 7 - MEMBANGUN CYBER RESILIENCE
     with st.container():
         st.write("---")
         st.markdown("<h2 style='text-align: center; color: #81D8D0;'>Cyber Resilience: Principles and Tools for Boards</h2>", unsafe_allow_html=True)
-        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>World Economic Forum dalam rangka membangun ketahanan siber (cyber resilience) dalam industri penerbangan, pada pertengahan September 2020 hingga pertengahan Januari 2021 melakukan pelatihan terhadap perwakilan berbagai industri penerbangan benua dan menghasilkan prinsip-prinsip penerbangan berikut untuk mendukung cyber resilience.</h6>", unsafe_allow_html=True)
+        st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>World Economic Forum dalam rangka membangun ketahanan siber (cyber resilience) dalam industri penerbangan, pada pertengahan September 2020 hingga pertengahan Januari 2021 melakukan pelatihan terhadap perwakilan industri penerbangan berbagai benua dunia dan menghasilkan prinsip-prinsip penerbangan berikut untuk mendukung cyber resilience.</h6>", unsafe_allow_html=True)
         image2 = Image.open("./img/res1.jpg")
         st.image(image2)
         image3 = Image.open("./img/res2.jpg")
@@ -238,6 +242,13 @@ elif choose == "Project":
             st_lottie(lottie_navy, height=179, key="navy")
             st.markdown("<h6 style='text-align: left; font-weight: bold; color: #008B8B;'>Perlindungan fisik</h6>", unsafe_allow_html=True)
             st.write("Perlindungan fasilitas hardware dan server, sistem kewenangan pada akses masuk (biometric, finger  print ), membatasi jumlah orang yang diberi izin masuk, mempersyaratkan penerbitan izin masuk disetujui oleh lebih dari 1 orang, sistem pengawasan terus menerus dengan CCTV, memiliki sistim dan back up system, membuat buku catatan kegiatan  (logbook) serta membuat sistem peringatan (alert  system).")                
+    
+    # SUBPAGE 9 - QUOTE
+    with st.container():
+        st.write("---")
+        st.markdown("<h4 style='text-align: center; text-weight: italic; color: #81D8D0;'>Cyber Security Quote</h4>", unsafe_allow_html=True)
+        image_quote = Image.open("./img/quote.png")
+        st.image(image_quote)
         
         
 # ---- DATA PAGE ----            
@@ -248,6 +259,7 @@ elif choose == "Data":
     st.markdown('<p class="font">Data Cases</p>', unsafe_allow_html=True)
     st.write('---')
     
+    # FUNGSI TAB
     tab1, tab2 = st.tabs(["🪤Insiden", "🔓Risiko"])
     with tab1:
         st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Insiden Ancaman Keamanan Siber dalam Aviation Cyber Security Tahun 2003-2021</h3>", unsafe_allow_html=True)
@@ -264,11 +276,17 @@ elif choose == "Data":
         )
         
         print(df)
+        
+        
+        
         AgGrid(df)
         st.write("Credit to: [Jurnal MDPI](https://www.researchgate.net/publication/359155431_Cyber-Security_Challenges_in_Aviation_Industry_A_Review_of_Current_and_Future_Trends)")
     with tab2:    
         st.markdown("<h3 style='text-align: left; color: #77BFC7;'>Risiko Manajemen Industri Penerbangan dalam Aviation Cyber Security</h3>", unsafe_allow_html=True)
         st.markdown("<h6 style='text-align: justify; font-weight: lighter; color: white;'>Laporan World Economic Forum menjelaskan bahwa setelah terjadi cyber attack pada industri penerbangan dapat menibulkan risiko sistemik dan risiko non-sistemik. Risikko sistemik lebih besar dampaknya karena konsekuensinya lebih luas. Risiko dapat terjadi pada seluruh sistem, tidak hanya pada bagian-bagian tertentu saja. Risiko ini lebih kompleks karena banyak variabel, koneksi, ketergantungan, dan saling ketergantungan menghasilkan konsekuensi yang berjenjang, seringkali tidak terduga. Risiko sistemik terjadi saling berkaitan antara satu sistem dan sistem lainnya, meluas, dan kompleks. Namun dengan begitu, manajemen risiko dalam industri penerbangan menjadi lebih matang menghadapi tantangan ancaman siber (cyberthreat), dapat lebih memahami risiko dan mitigasi, dan membangun industri penerbangan yang lebih tangguh.</h6>", unsafe_allow_html=True)
+        
+        
+        # LOAD IMAGE AND CAPTION
         image4 = Image.open("./img/risk.jpg")
         st.image(image4, caption="Credit to: [World Economic Forum](https://www.weforum.org/)", use_column_width=True)
     

@@ -1,8 +1,4 @@
   /* Hide Streamlit Branding */
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}
-
 #MainMenu {
   visibility:hidden;
 }
@@ -20,3 +16,4 @@ footer:after{
   padding:5px;
   top:3px;
 }
+
