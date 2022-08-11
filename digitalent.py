@@ -1,11 +1,11 @@
 import streamlit as st
+import json
 from streamlit_lottie import st_lottie
 from streamlit_lottie import st_lottie_spinner
 import pandas as pd
 import numpy as np
 from PIL import Image
 import time
-import json
 import requests
 from lib2to3.pgen2.pgen import DFAState
 from telnetlib import SEND_URL
