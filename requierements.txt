@@ -20,8 +20,4 @@ pipenv==2022.8.5
 requests==2.28.1
 streamlit==1.11.1
 streamlit-lottie==0.0.3
-<<<<<<< HEAD
 streamlit-option-menu==0.3.2
-=======
-streamlit-option-menu==0.3.2
->>>>>>> 4f3e87b3b1858747b0ae04abe915c78e6edac542
