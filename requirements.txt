@@ -111,6 +111,7 @@ statsmodels==0.13.2
 streamlit==1.11.1
 streamlit-aggrid==0.3.2
 streamlit-lottie==0.0.3
+streamlit_lottie==0.0.3
 streamlit-option-menu==0.3.2
 tenacity==8.0.1
 terminado==0.15.0
