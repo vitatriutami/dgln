@@ -1,19 +1,17 @@
-from argparse import Action
-from email.mime import image
-from lib2to3.pgen2.pgen import DFAState
-from telnetlib import SEND_URL
-from tokenize import Name
-from unicodedata import name
-from urllib import request
+import streamlit as st
+from streamlit_lottie import st_lottie
+from streamlit_lottie import st_lottie_spinner
 import pandas as pd
 import numpy as np
 from PIL import Image
 import time
 import json
 import requests
-import streamlit as st
-from streamlit_lottie import st_lottie
-from streamlit_lottie import st_lottie_spinner
+from lib2to3.pgen2.pgen import DFAState
+from telnetlib import SEND_URL
+from tokenize import Name
+from unicodedata import name
+from urllib import request
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as html
